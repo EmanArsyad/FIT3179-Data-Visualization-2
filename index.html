@@ -72,6 +72,16 @@
                 </p>
             </div>
         </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Attendeance by State</h2>
+                <p>[What does it show]</p>
+                <div id="vis5" class="vis-container"></div>
+                <p>[Findings]</p>
+                <p class="small-font">Source: ABS, Cultural and creative activities, 2021-22.</p>
+            </div>
+        </div>
     </div>    
 
     <script type="text/javascript">
@@ -91,6 +101,10 @@
         // Chart 4: Connected dot plot
         var specVis4 = "js/connected_dot_plot.vg.json";
         vegaEmbed('#vis4', specVis4, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
+    
+        // Chart 5: Choropleth map
+        var specVis5 = "js/choropleth_map.vg.json";
+        vegaEmbed('#vis5', specVis5, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
     </script>
 </body>
 </html>
