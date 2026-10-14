@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 250,
+
+    "data": {
+        "url": "data/attendance_by_artform.csv"
+    },
+
+    "transform": [
+        {
+            "filter": "datum.sex == 'Male' || datum.sex == 'Female'"
+        },
+        {
+            "calculate": "datum.sex == 'Male' ? -datum.percentage : datum.percentage",
+            "as": "signed"
+        }
+    ],
+
+    "encoding": {
+        "y": {
+            "field": "art",
+            "type": "nominal",
+            "title": null,
+            "sort": ["Live music", "Theatre", "Musicals or operas", "Dance", "Other performing arts"]
+        }
+    },
+
+    "layer": [
+        {
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "signed",
+                    "type": "quantitative",
+                    "title": "% of adults who went, 2021-22",
+                    "scale": { "domain": [-25, 25] },
+                    "axis": { "labelExpr": "abs(datum.value) + '%'" }
+                },
+                "color": {
+                    "field": "sex",
+                    "type": "nominal",
+                    "title": null,
+                    "scale": { "domain": ["Male", "Female"] },
+                    "legend": { "labelExpr": "datum.label == 'Male' ? 'Men' : 'Women'" }
+                },
+                "tooltip": [
+                    { "field": "art", "type": "nominal", "title": "Art form" },
+                    { "field": "percentage", "type": "quantitative", "title": "Adults who went (%)" }
+                ]
+            }
+        },
+        {
+            "transform": [
+                { "filter": "datum.sex == 'Male'" }
+            ],
+            "mark": {
+                "type": "text", "align": "right", "dx": -4
+            },
+            "encoding": {
+                "x": { "field": "signed", "type": "quantitative" },
+                "text": { "field": "percentage", "type": "quantitative", "format": ".1f" }
+            }
+        },
+        {
+            "transform": [
+                { "filter": "datum.sex == 'Female'" }
+            ],
+            "mark": {
+                "type": "text", "align": "left", "dx": 4
+            },
+            "encoding": {
+                "x": { "field": "signed", "type": "quantitative" },
+                "text": { "field": "percentage", "type": "quantitative", "format": ".1f" }
+            }
+        }
+    ],
+
+    "config": {
+        "view": { "stroke": null }
+    }
+}

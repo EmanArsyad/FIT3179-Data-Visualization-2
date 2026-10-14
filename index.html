@@ -49,6 +49,16 @@
                 <p class="small-font">Source: ABS, Cultural and creative activities, 2021-22.</p>                
             </div>
         </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Do women go more than men?</h2>
+                <p>[What does it show]</p>
+                <div id="vis3" class="vis-container"></div>
+                <p>[Findings]</p>
+                <p class="small-font">Source: ABS, Cultural and creative activities, 2021-22.</p>
+            </div>
+        </div>
     </div>    
 
     <script type="text/javascript">
@@ -60,6 +70,10 @@
         // Chart 2: Heatmap
         var specVis2 = "js/heatmap.vg.json";
         vegaEmbed('#vis2', specVis2, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
+    
+        // Chart 3: Diverging bar chart
+        var specVis3 = "js/diverging_bar_chart.vg.json";
+        vegaEmbed('#vis3', specVis3, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
     </script>
 </body>
 </html>
