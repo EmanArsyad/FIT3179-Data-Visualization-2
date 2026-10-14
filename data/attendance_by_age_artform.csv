@@ -1,0 +1,41 @@
+age_group, art, percentage
+15-17,Live music,12.1
+18-24,Live music,25.2
+25-34,Live music,19.9
+35-44,Live music,19.1
+45-54,Live music,20.2
+55-64,Live music,16.3
+65-74,Live music,12.8
+75+,Live music,7.4
+15-17,Musicals or operas,6.4
+18-24,Musicals or operas,5.4
+25-34,Musicals or operas,7.5
+35-44,Musicals or operas,7.6
+45-54,Musicals or operas,8.9
+55-64,Musicals or operas,7.4
+65-74,Musicals or operas,6.2
+75+,Musicals or operas,4.3
+15-17,Theatre,8.3
+18-24,Theatre,7.6
+25-34,Theatre,8.1
+35-44,Theatre,8.6
+45-54,Theatre,8.7
+55-64,Theatre,8.5
+65-74,Theatre,7.6
+75+,Theatre,5.3
+15-17,Dance,6.2
+18-24,Dance,3.3
+25-34,Dance,5.3
+35-44,Dance,8.0
+45-54,Dance,6.4
+55-64,Dance,3.6
+65-74,Dance,3.7
+75+,Dance,2.7
+15-17,Other performing arts,7.0
+18-24,Other performing arts,8.3
+25-34,Other performing arts,11.5
+35-44,Other performing arts,12.5
+45-54,Other performing arts,9.2
+55-64,Other performing arts,7.8
+65-74,Other performing arts,4.0
+75+,Other performing arts,2.4
