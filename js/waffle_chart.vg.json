@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    
+    "data": {
+        "url": "data/attendance_by_artform.csv"
+    },
+
+    "transform": [
+        {
+            "filter": "datum.sex == 'Persons'"
+        },
+        {
+            "calculate": "round(datum.percentage)",
+            "as": "filled"
+        },
+        {
+            "calculate": "indexof(['Live music', 'Theatre', 'Musicals or operas', 'Dance', 'Other performing arts'], datum.art)",
+            "as": "order"
+        },
+        {
+            "calculate": "datum.art + '|' + datum.filled + ' in every 100'",
+            "as": "heading"
+        },
+        {
+            "calculate": "sequence(0, 100)",
+            "as": "square"
+        },
+        {
+            "flatten": ["square"]
+        },
+        {
+            "calculate": "datum.square % 10",
+            "as": "col"
+        },
+        {
+            "calculate": "floor(datum.square / 10)",
+            "as": "row"
+        },
+        {
+            "calculate": "datum.square < datum.filled ? datum.art : 'Empty'",
+            "as": "fill_type"
+        }
+    ],
+
+    "facet": {
+        "field": "heading",
+        "type": "nominal",
+        "sort": {
+            "field": "order",
+            "op": "min"
+        },
+        "header": {
+            "title": null,
+            "labelExpr": "split(datum.value, '|')"
+        }
+    },
+    "columns": 5,
+
+    "spec": {
+        "width": 130,
+        "height": 130,
+        "mark": "rect",
+        "encoding": {
+            "x": {
+                "field": "col",
+                "type": "ordinal",
+                "axis": null
+            },
+            "y": {
+                "field": "row",
+                "type": "ordinal",
+                "axis": null,
+                "sort": "descending"
+            },
+            "color": {
+                "field": "fill_type",
+                "type": "nominal",
+                "legend": null,
+                "scale": {
+                    "domain": ["Live music", "Theatre", "Musicals or operas", "Dance", "Other performing arts", "Empty"],
+                    "range": ["#4c78a8", "#f58518", "#e45756", "#54a24b", "#9d9da1", "#e6e6e6"]
+                }
+            },
+            "tooltip": [
+                {
+                    "field": "art", "type": "nominal", "title": "Art form"
+                },
+                {
+                    "field": "percentage", "type": "quantitative", "title": "Adults who went (%)"
+                }
+            ]
+        }
+    },
+
+    "config": { "view": { "stroke": null } }
+}

@@ -1,16 +1,16 @@
-year, art, sex, percentage
-2021-22, Live music concerts or performances, Male, 16.7
-2021-22, Musicals or operas, Male, 5.0
-2021-22, Theatre performances, Male, 6.1
-2021-22, Dance performances, Male, 3.6
-2021-22, Other performing arts, Male, 7.7
-2021-22, Live music concerts or performances, Female, 18.4
-2021-22, Musicals or operas, Female, 8.9
-2021-22, Theatre performances, Female, 9.7
-2021-22, Dance performances, Female, 6.6
-2021-22, Other performing arts, Female, 9.4
-2021-22, Live music concerts or performances, Persons, 17.6
-2021-22, Musicals or operas, Persons, 7.0
-2021-22, Theatre performances, Persons, 8.0
-2021-22, Dance performances, Persons, 5.1
-2021-22, Other performing arts, Persons, 8.6
+year,art,sex,percentage
+2021-22,Live music,Male,16.7
+2021-22,Musicals or operas,Male,5.0
+2021-22,Theatre,Male,6.1
+2021-22,Dance,Male,3.6
+2021-22,Other performing arts,Male,7.7
+2021-22,Live music,Female,18.4
+2021-22,Musicals or operas,Female,8.9
+2021-22,Theatre,Female,9.7
+2021-22,Dance,Female,6.6
+2021-22,Other performing arts,Female,9.4
+2021-22,Live music,Persons,17.6
+2021-22,Musicals or operas,Persons,7.0
+2021-22,Theatre,Persons,8.0
+2021-22,Dance,Persons,5.1
+2021-22,Other performing arts,Persons,8.6
