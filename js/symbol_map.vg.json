@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "People attending a live performance, 2021-22",
+    "width": "container",
+    "height": 450,
+    "projection": {
+        "type": "conicEqualArea",
+        "parallels": [-18, -36],
+        "rotate": [-132, 0, 0]
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "data/australian_states.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_50m_admin_1_states_provinces"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgray",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": { "url": "data/attendance_by_city.csv" },
+            "mark": {
+                "type": "circle",
+                "opacity": 0.8,
+                "tooltip": {"content": "data"}
+            },
+            "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "size": {
+                    "field": "attendees",
+                    "type": "quantitative",
+                    "title": "Attendees ('000)",
+                    "scale": {
+                        "domain": [0, 1800],
+                        "range": [0, 2500]
+                    }
+                },
+                "color": {
+                    "field": "percentage",
+                    "type": "quantitative",
+                    "title": "% of adults",
+                    "scale": {
+                        "scheme": "reds",
+                        "domain": [20, 40]
+                    }
+                },
+                "order": {
+                    "field": "attendees",
+                    "type": "quantitative",
+                    "sort": "descending"
+                }
+            }
+        }
+    ]
+}
