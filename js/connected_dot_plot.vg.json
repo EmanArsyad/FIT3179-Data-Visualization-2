@@ -1,0 +1,106 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 330,
+
+    "data": {
+        "url": "data/attendance_change.csv"
+    },
+
+    "transform": [
+        {
+            "calculate": "datum.group + ': ' + datum.art",
+            "as": "row_name"
+        },
+        {
+            "calculate": "round((datum.percentage_202122 - datum.percentage_201718) / datum.percentage_201718 * 100)",
+            "as": "change"
+        },
+        {
+            "calculate": "(datum.change > 0 ? '+' : '') + datum.change + '%'",
+            "as": "change_label"
+        },
+        {
+            "calculate": "max(datum.percentage_201718, datum.percentage_202122)",
+            "as": "label_x"
+        }
+    ],
+
+    "encoding": {
+        "y": {
+            "field": "row_name",
+            "type": "nominal",
+            "title": null,
+            "sort": null
+        }
+    },
+
+    "layer": [
+        {
+            "mark": {
+                "type": "rule",
+                "color": "lightgray",
+                "strokeWidth": 3
+            },
+            "encoding": {
+                "x": {
+                    "field": "percentage_201718",
+                    "type": "quantitative",
+                    "title": "% who went in the year",
+                    "scale": { "domain": [0, 45] }
+                },
+                "x2": {
+                    "field": "percentage_202122"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": false,
+                "size": 150,
+                "strokeWidth": 2.5,
+                "color": "#4c78a8"
+            },
+            "encoding": {
+                "x": {
+                    "field": "percentage_201718",
+                    "type": "quantitative"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point", 
+                "filled": true,
+                "size": 150,
+                "color": "#4c78a8"
+            },
+            "encoding": {
+                "x": {
+                    "field": "percentage_202122",
+                    "type": "quantitative"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 14
+            },
+            "encoding": {
+                "x": {
+                    "field": "label_x", "type": "quantitative"
+                },
+                "text": {
+                    "field": "change_label"
+                }
+            }
+        }
+    ],
+
+    "config": {
+        "view": { "stroke": null }
+    }
+}
