@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 250,
+
+    "data": {
+        "url": "data/attendance_by_age_artform.csv"
+    },
+
+    "encoding": {
+        "x": {
+            "field": "age_group",
+            "type": "ordinal",
+            "title": "Age group",
+            "axis": {
+                "orient": "top", "labelAngle": 0
+            }
+        },
+        "y": {
+            "field": "art",
+            "type": "ordinal",
+            "title": null,
+            "sort": ["Live music", "Theatre", "Musicals or operas", "Dance", "Other performing arts"]
+        }
+    },
+
+    "layer": [
+        {
+            "mark": {
+                "type": "rect", "stroke": "white", "strokeWidth": 2
+            },
+            "encoding": {
+                "color": {
+                    "field": "percentage",
+                    "type": "quantitative",
+                    "title": "% of adults"
+                },
+                "tooltip": [
+                    { "field": "art", "type": "nominal", "title": "Art form" },
+                    { "field": "age_group", "type": "nominal", "title": "Age Group" },
+                    { "field": "percentage", "type": "quantitative", "title": "Adults who went (%)" }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text"
+            },
+            "encoding": {
+                "text": {
+                    "field": "percentage", "type": "quantitative", "format": ".1f"
+                },
+                "color": {
+                    "value": "black"
+                }
+            }
+        }
+    ],
+
+    "config": {
+        "view": { "stroke": null }
+    }
+
+}
