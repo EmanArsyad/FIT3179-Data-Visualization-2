@@ -1,0 +1,93 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Adults attending a live performance, 2017-18 and 2021-22",
+    "repeat": ["percentage_201718", "percentage_202122"],
+    "columns": 2,
+    "resolve": {
+        "scale": { "color": "shared"}
+    },
+    "spec": {
+        "projection": {
+            "type": "conicEqualArea",
+            "parallels": [-18, -36],
+            "rotate": [-132, 0, 0]
+        },
+        "width": 340,
+        "height": 320,
+        "layer": [
+            {
+                "data": {
+                    "url": "data/australian_states.topojson",
+                    "format": {
+                        "type": "topojson",
+                        "feature": "ne_50m_admin_1_states_provinces"
+                    }
+                },
+                "mark": {
+                    "type": "geoshape",
+                    "fill": "#ddd",
+                    "stroke": "white",
+                    "strokeWidth": 1
+                }
+            },
+            {
+                "data": { "url": "data/attendance_by_state_wide.csv"},
+                "transform": [
+                    {
+                        "lookup": "state",
+                        "from": {
+                            "data": {
+                                "url": "data/australian_states.topojson",
+                                "format": {
+                                    "type": "topojson",
+                                    "feature": "ne_50m_admin_1_states_provinces"
+                                }
+                            },
+                            "key": "properties.name"
+                        },
+                        "as": "geo"
+                    }
+                ],
+
+                "mark": {
+                    "type": "geoshape",
+                    "stroke": "white",
+                    "strokeWidth": 0.5
+                },
+                "encoding": {
+                    "shape": { "field": "geo", "type": "geojson" },
+                    "color": {
+                        "field": { "repeat": "repeat" },
+                        "type": "quantitative",
+                        "scale": { "domain": [20, 65], "scheme": "reds"},
+                        "legend": { "title": "% of adults" }
+                    },
+                    "tooltip": [
+                        { "field": "state", "type": "nominal", "title": "State" },
+                        { "field": {"repeat": "repeat"}, "type": "quantitative", "title": "% who attended" }
+                    ]
+                }
+            },
+            {
+                "data": {
+                    "values": [{
+                        "percentage_201718": "2017-18",
+                        "percentage_202122": "2021-22"
+                    }]
+                },
+                "mark": {
+                    "type": "text",
+                    "align": "right",
+                    "baseline": "bottom",
+                    "x": "width",
+                    "y": 0,
+                    "fontSize": 14,
+                    "fontWeight": "bold"
+                },
+                "encoding": {
+                    "text": { "field": { "repeat": "repeat" }}
+                }
+            }
+        ]
+    }
+}
