@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "NSW Live performance attendance, 2009-2023",
+    "width": "container",
+    "height": 300,
+    "data": {
+        "url": "data/nsw_attendance.csv"
+    },
+    "transform": [
+        {
+            "calculate": "datum.attendees / 1000000",
+            "as": "millions"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "scale": {
+                "zero": false,
+                "nice": false
+            },
+            "axis": {
+                "format": "d",
+                "tickMinStep": 1
+            }
+        },
+        "y": {
+            "field": "millions",
+            "type": "quantitative",
+            "title": "Attendees (millions)"
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "area",
+                "line": true,
+                "opacity": 0.4
+            },
+            "encoding": {
+                "tooltip": [
+                    {
+                        "field": "year",
+                        "type": "quantitative",
+                        "title": "Year",
+                        "format": "d"
+                    },
+                    {
+                        "field": "millions",
+                        "type": "quantitative",
+                        "title": "Attendees (millions)",
+                        "format": ".2f"
+                    }
+                ]
+            }
+        },
+        {
+            "transform": [
+                {
+                    "filter": "datum.year == 2019 || datum.year == 2020 || datum.year == 2023"
+                }
+            ],
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 60
+            }
+        },
+        {
+            "transform": [
+                {
+                    "filter": "datum.year == 2019 || datum.year == 2020 || datum.year == 2023"
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "dy": -12,
+                "fontWeight": "bold" 
+            },
+            "encoding": {
+                "text": {
+                    "field": "millions",
+                    "type": "quantitative",
+                    "format": ".1f"
+                }
+            }
+        }
+    ]
+}
