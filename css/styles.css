@@ -24,3 +24,9 @@ body {
 .small-font {
     font-size: 14px;
 }
+
+body h1, body h2, body h3 {
+    font-family: 'Playfair Display',
+    Georgia,
+    serif;
+}
