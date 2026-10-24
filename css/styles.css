@@ -41,3 +41,19 @@ body h1, body h2, body h3 {
     flex: 1 1 280px;
     margin: 0;
 }
+
+.chart-side {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+}
+
+.chart-side > div {
+    flex: 0 0 auto;
+}
+
+.chart-side > p {
+    flex: 1 1 260px;
+    margin: 0;
+}

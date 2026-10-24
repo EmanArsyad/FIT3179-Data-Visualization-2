@@ -173,6 +173,22 @@
                 <p class="small-font">Source: Source: ABS, Cultural and creative activities, 2021-22.</p>
             </div>
         </div>
+
+        <br>
+        <h2>| Attendance rate in each state (2017-18 and 2021-22)</h2>
+        <div class="chart-side">
+            <div id="vis11"></div>
+                <p>
+                    Every state lost its ground. Victoria fell from
+                    <br>55.7% to 26.5%, while the Northern Territory
+                    <br>fell from 49.0% to 38.9%. This visualizes every
+                    <br>state as an equal sized tile, so smaller
+                    <br>states such as the Australian Capital
+                    <br>Territory and Tasmania are more visible.
+                    <br>The darker the tile, the bigger the fall.
+                </p>
+        </div>
+        <p class="small-font">Source: Source: ABS, Cultural and creative activities, 2021-22.</p>
     </div>    
 
     <script type="text/javascript">
@@ -216,6 +232,10 @@
         // Chart 10: Horizontal bar chart
         var specVis10 = "js/horizontal_bar.vg.json";
         vegaEmbed('#vis10', specVis10, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
+
+        // Chart 11: Tile map
+        var specVis11 = "js/tile_map.vg.json";
+        vegaEmbed('#vis11', specVis11, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
     </script>
 </body>
 </html>
