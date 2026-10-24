@@ -30,3 +30,14 @@ body h1, body h2, body h3 {
     Georgia,
     serif;
 }
+
+.text-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.text-row p {
+    flex: 1 1 280px;
+    margin: 0;
+}
