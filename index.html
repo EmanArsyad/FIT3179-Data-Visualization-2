@@ -34,7 +34,7 @@
                 <br>using data from Australian Bureau of Statistics (ABS) and NSW Government.
                 <br>These include live music, theatre, musicals, dance and others.</p>
 
-                <h2>How many Australians go?</h2>
+                <h2>| How many Australians go?</h2>
                 <div id="vis1" class="vis-container"></div>
                 <p>Live music is the most popular at about 18 in 100 Australian adults.
                     <br>Whereas, dance performance is the least popular at about 5 in 100 Australian adults.</p>
@@ -44,20 +44,24 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>Which age group is amongst the audience?</h2>
+                <h2>| Which age group is amongst the audience?</h2>
                 <div id="vis2" class="vis-container"></div>
-                <p>Live music has concentrated amount of 18 to 24 year olds.
-                    <br>While, theatre is the steadiest across all age groups. 
-                    <br>Furthermore, across all performing arts, people aged 75 and over
-                    <br> are the lest likely to go.
-                </p>
+                <div class = "text-row">
+                    <p>Live music has concentrated amount of 18 to 24 year olds.
+                        <br>While, theatre is the steadiest across all age groups. 
+                    </p>
+                    <p class="next">
+                        Furthermore, across all performing arts, people aged 75 and over
+                        are the least likely to go.
+                    </p>
+                </div>
                 <p class="small-font">Source: ABS, Cultural and creative activities, 2021-22.</p>                
             </div>
         </div>
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>Do women go more than men?</h2>
+                <h2>| Do women go more than men?</h2>
                 <div id="vis3" class="vis-container"></div>
                 <p>For every type of performing arts, women do go more than men.
                     <br>Women are found to almost be twice as likely to go to dance performances than men.
@@ -69,7 +73,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>How participation has changed over time</h2>
+                <h2>| How participation has changed over time</h2>
                 <p>Hollow circles: 2017-18 | Solid circles: 2021-22</p>
                 <div id="vis4" class="vis-container"></div>
                 <p>For every type of performing arts, the attendance nearly halved
@@ -83,7 +87,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>Attendance by State</h2>
+                <h2>| Attendance by State</h2>
                 <div id="vis5" class="vis-container"></div>
                 <p>The Northern Territory has the highest percentage of 38.9%
                     <br>Whereas, the lowest are NSW and Victoria at around 26%.
@@ -94,7 +98,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>Attendance by City</h2>
+                <h2>| Attendance by City</h2>
                 <div id="vis6" class="vis-container"></div>
                 <p>New South Wales and Victoria has the biggest circles which
                     <br>translates to having the most people that participated.
@@ -107,7 +111,28 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>The Before and After</h2>
+                <h2>| Live performance attendees by state, 2021-22</h2>
+                <div id="vis10" class="vis-container"></div>
+                <div class="text-row">
+                    <p>
+                        When viewed with the previous chart above, Victoria has the 
+                        <br>second largest audience with 1392 thousand but the 
+                        <br>lowest attendance rate of 26.5%. Whereas, Northern Territory 
+                        <br>has the smallest audience of 57 thousand but the highest 
+                        <br>attendance rate of 38.9%.
+                    </p>
+                    <p class="note">
+                        Note: These totals follow population, so they show where
+                        <br>audiences are from and not where people go most often. 
+                    </p>
+                </div>
+                <p class="small-font">Source: ABS, Cultural and creative activities, 2021-22.</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>| The Before and After</h2>
                 <div id="vis7" class="vis-container"></div>
                 <p>Every state's attendance dropped. Across Australia,
                     <br>the share dropped from 53.7% to 29.5%.
@@ -118,7 +143,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>The drop based on NSW live performance attendance</h2>
+                <h2>| The drop based on NSW live performance attendance</h2>
                 <div id="vis8" class="vis-container"></div>
                 <p>The attendance in New South Wales dropped from 7.2 million in 2019
                     <br>to 2 millions in 2020. The attendance recovered back to 9.2 million
@@ -130,7 +155,7 @@
 
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h2>Ranking the states from 2017-18 to 2021-22</h2>
+                <h2>| Ranking the states from 2017-18 to 2021-22</h2>
                 <div id="vis9" class="vis-container"></div>
                 <div class="text-row">
                     <p>
@@ -175,7 +200,7 @@
         // Chart 6: Proportional symbol map
         var specVis6 = "js/symbol_map.vg.json";
         vegaEmbed('#vis6', specVis6, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
-    
+        
         // Chart 7: Before after choropleth map
         var specVis7 = "js/before_after_choropleth.vg.json";
         vegaEmbed('#vis7', specVis7, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
@@ -187,6 +212,10 @@
         // Chart 9: Bump chart
         var specVis9 = "js/bump_chart.vg.json";
         vegaEmbed('#vis9', specVis9, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
+
+        // Chart 10: Horizontal bar chart
+        var specVis10 = "js/horizontal_bar.vg.json";
+        vegaEmbed('#vis10', specVis10, { "actions": false, "renderer": "svg" }).then(function (result) {}).catch(console.error);
     </script>
 </body>
 </html>

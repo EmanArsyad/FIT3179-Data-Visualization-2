@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 300,
+    "title": "Live performance attendees by state, 2021-22",
+    "data": {
+        "url": "data/attendance_by_city.csv",
+        "format": {
+            "parse": { "attendees": "number" }
+        }
+    },
+    "encoding": {
+        "y": {
+            "field": "state",
+            "type": "nominal",
+            "title": null,
+            "sort": {
+                "field": "attendees",
+                "op": "max",
+                "order": "descending"
+            }
+        },
+        "x": {
+            "field": "attendees",
+            "type": "quantitative",
+            "title": "People (thousands)"
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "bar",
+                "color": "#4636a8"
+            },
+            "encoding": {
+                "tooltip": [
+                    {
+                        "field": "state",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "attendees",
+                        "type": "quantitative",
+                        "title": "People ('000)",
+                        "format": ",.0f"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 4
+            },
+            "encoding": {
+                "text": {
+                    "field": "attendees",
+                    "type": "quantitative",
+                    "format": ",.0f"
+                }
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}
