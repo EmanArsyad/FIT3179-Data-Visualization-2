@@ -1,0 +1,213 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 340,
+    "title": "Ranking the states from 2017-18 to 2021-22",
+    "data": {
+        "url": "data/attendance_by_state_wide.csv"
+    },
+    "transform": [
+        {
+            "fold": [
+                "percentage_201718",
+                "percentage_202122"
+            ],
+            "as": [
+                "period_key",
+                "percentage"
+            ]
+        },
+        {
+            "calculate": "datum.period_key == 'percentage_201718' ? '2017-18' : '2021-22'",
+            "as": "period"
+        },
+        {
+            "window": [
+                {
+                    "op": "rank",
+                    "as": "rank"
+                }
+            ],
+            "sort": [
+                {
+                    "field": "percentage",
+                    "order": "descending"
+                }
+            ],
+            "groupby": [
+                "period"
+            ]
+        },
+        {
+            "calculate": "datum.state == 'Victoria' || datum.state == 'Northern Territory' ? datum.state : 'Other'",
+            "as": "highlight"
+        },
+        {
+            "calculate": "datum.state + ' ' + format(datum.percentage, '.1f') + '%'",
+            "as": "label"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "period",
+            "type": "ordinal",
+            "title": null,
+            "sort": [
+                "2017-18",
+                "2021-22"
+            ],
+            "axis": {
+                "orient": "top",
+                "labelAngle": 0,
+                "labelFontSize": 13,
+                "ticks": false,
+                "domain": false
+            },
+            "scale": {
+                "padding": 0.7
+            }
+        },
+        "y": {
+            "field": "rank",
+            "type": "quantitative",
+            "title": null,
+            "scale": {
+                "reverse": true,
+                "domain": [
+                    0.5,
+                    8.5
+                ]
+            },
+            "axis": null
+        },
+        "color": {
+            "field": "highlight",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+                "domain": [
+                    "Victoria",
+                    "Northern Territory",
+                    "Other"
+                ],
+                "range": [ "#d95f02", "#4636a8", "#c9c5d4"]
+            }
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "strokeWidth": 3
+            },
+            "encoding": {
+                "detail": {
+                    "field": "state",
+                    "type": "nominal"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 120,
+                "opacity": 1
+            },
+            "encoding": {
+                "tooltip": [
+                    {
+                        "field": "state",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "period",
+                        "type": "nominal",
+                        "title": "Year"
+                    },
+                    {
+                        "field": "rank",
+                        "type": "nominal",
+                        "title": "Rank"
+                    },
+                    {
+                        "field": "percentage",
+                        "type": "quantitative",
+                        "title": "% of Adults",
+                        "format": ".1f"
+                    }
+                ]
+            }
+        },
+        {
+            "transform": [
+                {
+                    "filter": "datum.period == '2017-18'"
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "dx": -12,
+                "fontSize": 12
+            },
+            "encoding": {
+                "text": {
+                    "field": "label",
+                    "type": "nominal"
+                },
+                "color": {
+                    "condition": [
+                        {
+                            "test": "datum.highlight == 'Victoria'",
+                            "value": "#d95f02"
+                        },
+                        {
+                            "test": "datum.highlight == 'Northern Territory'",
+                            "value": "#4636a8"
+                        }
+                    ],
+                    "value": "#555555"
+                }
+            }
+        },
+        {
+            "transform": [
+                {
+                    "filter": "datum.period == '2021-22'"
+                }
+            ],
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 12,
+                "fontSize": 12
+            },
+            "encoding": {
+                "text": {
+                    "field": "label",
+                    "type": "nominal"
+                },
+                "color": {
+                    "condition": [
+                        {
+                            "test": "datum.highlight == 'Victoria'",
+                            "value": "#d95f02"
+                        },
+                        {
+                            "test": "datum.highlight == 'Northern Territory'",
+                            "value": "#4636a8"
+                        }
+                    ],
+                    "value": "#555555"
+                }
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}
