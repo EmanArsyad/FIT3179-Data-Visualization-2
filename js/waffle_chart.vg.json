@@ -51,26 +51,34 @@
         },
         "header": {
             "title": null,
-            "labelExpr": "split(datum.value, '|')"
+            "labelExpr": "split(datum.value, '|')",
+            "labelFontSize": 14,
+            "labelPadding": 8
         }
     },
-    "columns": 5,
+    "columns": 3,
 
     "spec": {
-        "width": 130,
-        "height": 130,
+        "width": 205,
+        "height": 205,
         "mark": "rect",
         "encoding": {
             "x": {
                 "field": "col",
                 "type": "ordinal",
-                "axis": null
+                "axis": null,
+                "scale": {
+                    "paddingInner": 0.15
+                }
             },
             "y": {
                 "field": "row",
                 "type": "ordinal",
                 "axis": null,
-                "sort": "descending"
+                "sort": "descending",
+                "scale": {
+                    "paddingInner": 0.15
+                }
             },
             "color": {
                 "field": "fill_type",
