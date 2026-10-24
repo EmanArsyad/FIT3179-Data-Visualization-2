@@ -28,7 +28,7 @@
             "mark": {
                 "type": "circle",
                 "opacity": 0.8,
-                "tooltip": {"content": "data"}
+                "color": "#4636a8"
             },
             "encoding": {
                 "longitude": {"field": "longitude", "type": "quantitative"},
@@ -42,20 +42,17 @@
                         "range": [0, 2500]
                     }
                 },
-                "color": {
-                    "field": "percentage",
-                    "type": "quantitative",
-                    "title": "% of adults",
-                    "scale": {
-                        "scheme": "reds",
-                        "domain": [20, 40]
-                    }
-                },
                 "order": {
                     "field": "attendees",
                     "type": "quantitative",
                     "sort": "descending"
-                }
+                },
+                "tooltip": [
+                    { "field": "city", "type": "nominal", "title": "City"},
+                    { "field": "state", "type": "nominal", "title": "State"},
+                    { "field": "attendees", "type": "quantitative", "title": "Attendees ('000)", "format": ",.0f"},
+                    { "field": "percentage", "type": "quantitative", "title": "% of adults", "format": ".1f"}
+                ]
             }
         }
     ]
