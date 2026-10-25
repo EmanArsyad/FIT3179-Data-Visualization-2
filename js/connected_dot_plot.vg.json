@@ -19,10 +19,6 @@
         {
             "calculate": "(datum.change > 0 ? '+' : '') + datum.change + '%'",
             "as": "change_label"
-        },
-        {
-            "calculate": "max(datum.percentage_201718, datum.percentage_202122)",
-            "as": "label_x"
         }
     ],
 
@@ -57,16 +53,30 @@
         {
             "mark": {
                 "type": "point",
-                "filled": false,
+                "filled": true,
                 "size": 150,
-                "strokeWidth": 2.5,
-                "color": "#4c78a8"
+                "opacity": 1
             },
             "encoding": {
                 "x": {
                     "field": "percentage_201718",
                     "type": "quantitative"
-                }
+                },
+                "color": {
+                    "datum": "2017-18",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["2017-18", "2021-22"],
+                        "range": ["#143d51", "#691c2d"]
+                    },
+                    "legend": {"title": null}
+                },
+                "tooltip": [
+                    { "field": "row_name", "type": "nominal", "title": "Group" },
+                    { "field": "percentage_201718", "type": "quantitative", "title": "2017-18 (%)", "format": ".1f" },
+                    { "field": "percentage_202122", "type": "quantitative", "title": "2021-22 (%)", "format": ".1f" },
+                    { "field": "change_label", "type": "nominal", "title": "Percentage change"}
+                ]
             }
         },
         {
@@ -74,28 +84,28 @@
                 "type": "point", 
                 "filled": true,
                 "size": 150,
-                "color": "#4c78a8"
+                "opacity": 1
             },
             "encoding": {
                 "x": {
                     "field": "percentage_202122",
                     "type": "quantitative"
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "text",
-                "align": "left",
-                "dx": 14
-            },
-            "encoding": {
-                "x": {
-                    "field": "label_x", "type": "quantitative"
                 },
-                "text": {
-                    "field": "change_label"
-                }
+                "color": {
+                    "datum": "2021-22",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["2017-18", "2021-22"],
+                        "range": ["#143d51", "#691c2d"]
+                    },
+                    "legend": { "title": null }
+                },
+                "tooltip": [
+                    { "field": "row_name", "type": "nominal", "title": "Group" },
+                    { "field": "percentage_201718", "type": "quantitative", "title": "2017-18 (%)", "format": ".1f" },
+                    { "field": "percentage_202122", "type": "quantitative", "title": "2021-22 (%)", "format": ".1f" },
+                    { "field": "change_label", "type": "nominal", "title": "Percentage change"}
+                ]
             }
         }
     ],

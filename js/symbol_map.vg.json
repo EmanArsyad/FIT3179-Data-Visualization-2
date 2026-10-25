@@ -19,7 +19,7 @@
             },
             "mark": {
                 "type": "geoshape",
-                "fill": "lightgray",
+                "fill": "#d9d3c7",
                 "stroke": "white"
             }
         },
@@ -28,7 +28,7 @@
             "mark": {
                 "type": "circle",
                 "opacity": 0.8,
-                "color": "#4636a8"
+                "color": "#691c2d"
             },
             "encoding": {
                 "longitude": {"field": "longitude", "type": "quantitative"},

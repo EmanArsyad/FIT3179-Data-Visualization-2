@@ -25,7 +25,7 @@
                 },
                 "mark": {
                     "type": "geoshape",
-                    "fill": "#ddd",
+                    "fill": "#d9d3c7",
                     "stroke": "white",
                     "strokeWidth": 1
                 }
@@ -59,7 +59,10 @@
                     "color": {
                         "field": { "repeat": "repeat" },
                         "type": "quantitative",
-                        "scale": { "domain": [20, 65], "scheme": "reds"},
+                        "scale": { 
+                            "domain": [20, 35, 50, 65],
+                            "range": ["#ead3a5", "#e59f45", "#97312d", "#691c2d"]
+                        },
                         "legend": { "title": "% of adults" }
                     },
                     "tooltip": [

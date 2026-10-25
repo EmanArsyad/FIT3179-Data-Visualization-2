@@ -37,7 +37,9 @@
             "mark": {
                 "type": "area",
                 "line": true,
-                "opacity": 0.4
+                "opacity": 0.4,
+                "color": "#e59f45",
+                "line": { "color": "#691c2d"}
             },
             "encoding": {
                 "tooltip": [
@@ -65,7 +67,8 @@
             "mark": {
                 "type": "point",
                 "filled": true,
-                "size": 60
+                "size": 60,
+                "color": "#691c2d"
             }
         },
         {

@@ -54,11 +54,8 @@
                     "field": "fall",
                     "type": "quantitative",
                     "scale": {
-                        "scheme": "reds",
-                        "domain": [
-                            0,
-                            30
-                        ]
+                        "domain": [0, 10, 20, 30],
+                        "range": ["#ead3a5", "#e59f45", "#97312d", "#691c2d"]
                     },
                     "legend": {
                         "title": null,
@@ -102,7 +99,7 @@
                 },
                 "color": {
                     "condition": {
-                        "test": "datum.fall > 18",
+                        "test": "datum.fall > 14",
                         "value": "white"
                     },
                     "value": "black"
@@ -122,7 +119,7 @@
                 },
                 "color": {
                     "condition": {
-                        "test": "datum.fall > 18",
+                        "test": "datum.fall > 14",
                         "value": "white"
                     },
                     "value": "black"

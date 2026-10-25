@@ -1,16 +1,30 @@
+:root {
+    --page-bg: #f2e7d4;
+    --card-bg: #ffffff;
+    --primary: #691c2d;
+    --secondary: #143d51;
+    --text: #252324;
+    --neutral: #d9d3c7;
+}
+
 body * {
     font-family: 'Open-Sans', sans-serif;
 }
 
 body {
-    background-color: white;
+    background-color: var(--page-bg);
+    color: var(--text);
     margin: 0;
 }
 
 .page {
     max-width: 900px;
-    margin: auto;
-    padding: 35px 20px 50px 20px;
+    margin: 24px auto;
+    background-color: var(--card-bg);
+    padding: 0 24px 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 }
 
 .vis-container {
@@ -46,7 +60,7 @@ body h1, body h2, body h3 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 24px;
+    gap: 28px;
 }
 
 .chart-side > div {
@@ -59,7 +73,10 @@ body h1, body h2, body h3 {
 }
 
 .page-header {
-    padding: 48px 0 24px;
+    background-color: var(--primary);
+    color: white;
+    margin: 0 -24px 24px;
+    padding: 40px 24px;
 }
 
 .page-header h1 {
@@ -71,5 +88,10 @@ body h1, body h2, body h3 {
     margin: 0;
     max-width: 700px;
     font-size: 1.2em;
-    color: black;
+    color: #f2e7d4;
+}
+
+.findings {
+    font-size: 1.15em;
+    line-height: 1.3;
 }

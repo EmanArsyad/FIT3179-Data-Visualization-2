@@ -90,7 +90,7 @@
                     "Northern Territory",
                     "Other"
                 ],
-                "range": [ "#d95f02", "#4636a8", "#c9c5d4"]
+                "range": [ "#691c2d", "#143d51", "#d9d3c7"]
             }
         }
     },
@@ -161,11 +161,11 @@
                     "condition": [
                         {
                             "test": "datum.highlight == 'Victoria'",
-                            "value": "#d95f02"
+                            "value": "#691c2d"
                         },
                         {
                             "test": "datum.highlight == 'Northern Territory'",
-                            "value": "#4636a8"
+                            "value": "#143d51"
                         }
                     ],
                     "value": "#555555"
@@ -193,11 +193,11 @@
                     "condition": [
                         {
                             "test": "datum.highlight == 'Victoria'",
-                            "value": "#d95f02"
+                            "value": "#691c2d"
                         },
                         {
                             "test": "datum.highlight == 'Northern Territory'",
-                            "value": "#4636a8"
+                            "value": "#143d51"
                         }
                     ],
                     "value": "#555555"

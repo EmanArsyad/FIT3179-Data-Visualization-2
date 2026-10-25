@@ -33,7 +33,11 @@
                 "color": {
                     "field": "percentage",
                     "type": "quantitative",
-                    "title": "% of adults"
+                    "title": "% of adults",
+                    "scale": {
+                        "domain": [0, 20, 40],
+                        "range": ["#f0d4cc","#97312d", "#691c2d"]
+                    }
                 },
                 "tooltip": [
                     { "field": "art", "type": "nominal", "title": "Art form" },
@@ -51,7 +55,10 @@
                     "field": "percentage", "type": "quantitative", "format": ".1f"
                 },
                 "color": {
-                    "value": "black"
+                    "condition": {
+                        "test": "datum.percentage > 20", "value": "white"
+                    },
+                    "value": "#252324"
                 }
             }
         }

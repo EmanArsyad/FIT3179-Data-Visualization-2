@@ -41,7 +41,7 @@
                     "field": "sex",
                     "type": "nominal",
                     "title": null,
-                    "scale": { "domain": ["Male", "Female"] },
+                    "scale": { "domain": ["Male", "Female"], "range": ["#143d51", "#691c2d"] },
                     "legend": { "labelExpr": "datum.label == 'Male' ? 'Men' : 'Women'" }
                 },
                 "tooltip": [

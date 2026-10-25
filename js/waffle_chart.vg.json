@@ -86,7 +86,7 @@
                 "legend": null,
                 "scale": {
                     "domain": ["Live music", "Theatre", "Musicals or operas", "Dance", "Other performing arts", "Empty"],
-                    "range": ["#4c78a8", "#f58518", "#e45756", "#54a24b", "#9d9da1", "#e6e6e6"]
+                    "range": ["#691c2d", "#e59f45", "#143d51", "#18615b", "#8c8a86", "#d9d3c7"]
                 }
             },
             "tooltip": [

@@ -30,7 +30,7 @@
         {
             "mark": {
                 "type": "bar",
-                "color": "#4636a8"
+                "color": "#691c2d"
             },
             "encoding": {
                 "tooltip": [
