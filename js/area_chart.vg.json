@@ -36,7 +36,6 @@
         {
             "mark": {
                 "type": "area",
-                "line": true,
                 "opacity": 0.4,
                 "color": "#e59f45",
                 "line": { "color": "#691c2d"}
